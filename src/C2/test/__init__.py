@@ -1,0 +1,1 @@
+__all__ = ["testKnnClassify0","testFile2Matrix","testAutoNorm"]
