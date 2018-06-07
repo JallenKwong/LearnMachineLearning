@@ -470,6 +470,31 @@
 	#['love', 'my', 'dalmation'] classified as:  0
 	#['stupid', 'garbage'] classified as:  1
 
+
+### 词集模型 与 词袋模型 ###
+
+词集模型 set-of-words model：将每个词的出现与否作为一个特征
+
+	def setOfWords2Vec(vocabList, inputSet):
+	    returnVec = [0]*len(vocabList)
+	    for word in inputSet:
+	        if word in vocabList:
+	            returnVec[vocabList.index(word)] = 1
+	        else: print "the word: %s is not in my Vocabulary!" % word
+	    return returnVec
+
+---
+
+词袋模型 bag-of-words model：包含该词是否出现在文档中所不能表述的某种信息
+
+	def bagOfWords2VecMN(vocabList, inputSet):
+	    returnVec = [0]*len(vocabList)
+	    for word in inputSet:
+	        if word in vocabList:
+	            returnVec[vocabList.index(word)] += 1
+	    return returnVec
+
+
 ### 使用朴素贝叶斯过滤垃圾邮件 ###
 
 	#预处理数据文件
@@ -522,15 +547,5 @@
 	
 	# classification error ['benoit', 'mandelbrot', '1924', '2010', 'benoit', 'mandelbrot', '1924', '2010', 'wilmott', 'team', 'benoit', 'mandelbrot', 'the', 'mathematician', 'the', 'father', 'fractal', 'mathematics', 'and', 'advocate', 'more', 'sophisticated', 'modelling', 'quantitative', 'finance', 'died', '14th', 'october', '2010', 'aged', 'wilmott', 'magazine', 'has', 'often', 'featured', 'mandelbrot', 'his', 'ideas', 'and', 'the', 'work', 'others', 'inspired', 'his', 'fundamental', 'insights', 'you', 'must', 'logged', 'view', 'these', 'articles', 'from', 'past', 'issues', 'wilmott', 'magazine']
 	# the error rate is:  0.1
-
-
-
-
-
-
-
-
-
-
 
 
